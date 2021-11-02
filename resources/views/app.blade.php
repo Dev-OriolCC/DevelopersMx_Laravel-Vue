@@ -8,6 +8,7 @@
         <!-- NEW -->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
         <script src="{{ mix('/js/app.js') }}" defer></script>
+        <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
         <!--  -->
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 

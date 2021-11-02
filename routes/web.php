@@ -11,6 +11,8 @@ use Inertia\Inertia;
 //  ? Public Routes
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/api', [HomeController::class, 'api'])->name('api');
 // ! Test
 Route::get('/developers', [HomeController::class, 'developers'])->name('developers');
 Route::get('/developer/{id}', [HomeController::class, 'developer'])->name('developer');
@@ -18,9 +20,6 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 Route::get('/project/{id}', [HomeController::class, 'project'])->name('project');
 Route::get('/companies', [HomeController::class, 'companies'])->name('companies');
 Route::get('/company/{id}', [HomeController::class, 'company'])->name('company');
-// About
-// API-REST
-// 
 
 
 // ? Authenticated Routes

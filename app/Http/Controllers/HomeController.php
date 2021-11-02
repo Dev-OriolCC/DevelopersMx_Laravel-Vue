@@ -19,7 +19,10 @@ class HomeController extends Controller
     }
 
     public function developers(){ 
-        return Inertia::render('Developers/Index');
+        return Inertia::render('Developers/Index', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
     }
 
     public function developer($id){ 
