@@ -8,7 +8,7 @@
                         <div class="footer-logo mb-3">
                             <img src="assets/img/logo.svg" alt="">
                         </div>
-                        <p class="text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi quasi, ipsam
+                        <p class="text-gray-300 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi quasi, ipsam
                         voluptatem.</p>
                     </div>
                 </div>
