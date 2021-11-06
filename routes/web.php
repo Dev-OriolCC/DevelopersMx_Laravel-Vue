@@ -27,6 +27,9 @@ Route::resource('projects', ProjectsController::class);
 
 // ? Authenticated Routes
 Route::get('/dashboard', function () {
+    // ! Testing relationship..
+    // dd(Auth::user());
+
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

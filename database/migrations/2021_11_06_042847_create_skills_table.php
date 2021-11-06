@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignkeyToUsersTable extends Migration
+class CreateSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class AddForeignkeyToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            // 
             $table->uuid('developer_id');
+            $table->string('name');
+            $table->string('description');
+            //
+            $table->timestamps();
         });
     }
 
@@ -25,8 +31,6 @@ class AddForeignkeyToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('developer_id');
-        });
+        Schema::dropIfExists('skills');
     }
 }
