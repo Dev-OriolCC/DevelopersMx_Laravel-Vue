@@ -20177,7 +20177,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer id=\"footer\" class=\"bg-gray-800 py-16\"><div class=\"container\"><div class=\"flex flex-wrap\"><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.2s\"><div class=\"mx-3 mb-8\"><div class=\"footer-logo mb-3\"><img src=\"assets/img/logo.svg\" alt=\"\"></div><p class=\"text-gray-300\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi quasi, ipsam voluptatem.</p></div></div><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.4s\"><div class=\"mx-3 mb-8\"><h3 class=\"font-bold text-xl text-white mb-5\">Company</h3><ul><li><a href=\"#\" class=\"footer-links text-white\">Press Releases</a></li><li><a href=\"#\" class=\"footer-links text-white\">Mission</a></li><li><a href=\"#\" class=\"footer-links text-white\">Strategy</a></li></ul></div></div><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.6s\"><div class=\"mx-3 mb-8\"><h3 class=\"font-bold text-xl text-white mb-5\">About</h3><ul><li><a href=\"#\" class=\"footer-links text-white\">Career</a></li><li><a href=\"#\" class=\"footer-links text-white\">Team</a></li><li><a href=\"#\" class=\"footer-links text-white\">Clients</a></li></ul></div></div><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.8s\"><div class=\"mx-3 mb-8\"><h3 class=\"font-bold text-xl text-white mb-5\">Find us on</h3><ul class=\"social-icons flex justify-start\"><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-indigo-500\"><span class=\"iconify\" data-icon=\"mdi:facebook\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-blue-400\"><span class=\"iconify\" data-icon=\"mdi:twitter\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-red-500\"><span class=\"iconify\" data-icon=\"mdi:instagram\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-indigo-600\"><span class=\"iconify\" data-icon=\"mdi:email\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li></ul></div></div></div></div></footer>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer id=\"footer\" class=\"bg-gray-800 py-16\"><div class=\"container\"><div class=\"flex flex-wrap\"><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.2s\"><div class=\"mx-3 mb-8\"><div class=\"footer-logo mb-3\"><img src=\"assets/img/logo.svg\" alt=\"\"></div><p class=\"text-gray-300 text-justify\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi quasi, ipsam voluptatem.</p></div></div><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.4s\"><div class=\"mx-3 mb-8\"><h3 class=\"font-bold text-xl text-white mb-5\">Company</h3><ul><li><a href=\"#\" class=\"footer-links text-white\">Press Releases</a></li><li><a href=\"#\" class=\"footer-links text-white\">Mission</a></li><li><a href=\"#\" class=\"footer-links text-white\">Strategy</a></li></ul></div></div><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.6s\"><div class=\"mx-3 mb-8\"><h3 class=\"font-bold text-xl text-white mb-5\">About</h3><ul><li><a href=\"#\" class=\"footer-links text-white\">Career</a></li><li><a href=\"#\" class=\"footer-links text-white\">Team</a></li><li><a href=\"#\" class=\"footer-links text-white\">Clients</a></li></ul></div></div><div class=\"w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp\" data-wow-delay=\"0.8s\"><div class=\"mx-3 mb-8\"><h3 class=\"font-bold text-xl text-white mb-5\">Find us on</h3><ul class=\"social-icons flex justify-start\"><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-indigo-500\"><span class=\"iconify\" data-icon=\"mdi:facebook\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-blue-400\"><span class=\"iconify\" data-icon=\"mdi:twitter\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-red-500\"><span class=\"iconify\" data-icon=\"mdi:instagram\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li><li class=\"mx-2\"><a href=\"#\" class=\"footer-icon hover:bg-indigo-600\"><span class=\"iconify\" data-icon=\"mdi:email\" style=\"color:white;\" data-width=\"30\" data-height=\"30\"></span></a></li></ul></div></div></div></div></footer>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Footer Section Start "), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Footer Section End ")], 2112
@@ -21597,13 +21597,86 @@ var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-317d1a6e"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
 
-var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_1 = {
+  "class": "relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0",
+  style: {
+    "background-color": "#619DF2"
+  }
+};
+var _hoisted_2 = {
+  "class": "w-full text-center"
+};
+
+var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    "class": "title mt-5"
+  }, "Discover Developers & Tech Companies from Mexico.", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0",
+    "class": "text-center mt-10"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "img-fluid mx-auto",
+    src: "https://www.pinclipart.com/picdir/big/405-4051189_construction-software-developer-clipart.png",
+    width: "450px",
+    height: "450px",
+    alt: ""
+  })], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"feature\" class=\"bg-blue-100 py-24 mt-5\" data-v-317d1a6e><div class=\"container\" data-v-317d1a6e><div class=\"flex flex-wrap items-center\" data-v-317d1a6e><div class=\"w-full lg:w-1/2\" data-v-317d1a6e><div class=\"mb-5 lg:mb-0\" data-v-317d1a6e><h2 class=\"mb-12 section-heading wow fadeInDown\" data-wow-delay=\"0.3s\" data-v-317d1a6e>Learn More About Us</h2><div class=\"flex flex-wrap\" data-v-317d1a6e><div class=\"w-full sm:w-1/2 lg:w-1/2\" data-v-317d1a6e><div class=\"m-3 text-left ml-10\" data-v-317d1a6e><div class=\"icon text-4xl\" data-v-317d1a6e><span class=\"iconify\" data-icon=\"mdi:briefcase-outline\" style=\"color:#4F46E5;\" data-width=\"45\" data-height=\"45\" data-v-317d1a6e></span></div><div class=\"features-content\" data-v-317d1a6e><h4 class=\"feature-title\" data-v-317d1a6e>Discover Jobs</h4><p class=\"text-justify\" data-v-317d1a6e> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora quidem vel sint.</p></div></div></div><div class=\"w-full sm:w-1/2 lg:w-1/2\" data-v-317d1a6e><div class=\"m-3 text-left ml-10\" data-v-317d1a6e><div class=\"icon text-4xl\" data-v-317d1a6e><span class=\"iconify\" data-icon=\"mdi:account-box\" style=\"color:#4f46e5;\" data-width=\"45\" data-height=\"45\" data-v-317d1a6e></span></div><div class=\"features-content\" data-v-317d1a6e><h4 class=\"feature-title\" data-v-317d1a6e>Share Your Profile</h4><p class=\"text-justify\" data-v-317d1a6e> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora quidem vel sint.</p></div></div></div><div class=\"w-full sm:w-1/2 lg:w-1/2\" data-v-317d1a6e><div class=\"m-3 text-left ml-10\" data-v-317d1a6e><div class=\"icon text-4xl\" data-v-317d1a6e><span class=\"iconify\" data-icon=\"mdi:human-greeting-proximity\" style=\"color:#4f46e5;\" data-width=\"45\" data-height=\"45\" data-v-317d1a6e></span></div><div class=\"features-content\" data-v-317d1a6e><h4 class=\"feature-title\" data-v-317d1a6e>Connect with Companies</h4><p class=\"text-justify\" data-v-317d1a6e> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora quidem vel sint.</p></div></div></div><div class=\"w-full sm:w-1/2 lg:w-1/2\" data-v-317d1a6e><div class=\"m-3 text-left ml-10\" data-v-317d1a6e><div class=\"icon text-4xl\" data-v-317d1a6e><span class=\"iconify\" data-icon=\"mdi:palette-outline\" style=\"color:#4f46e5;\" data-width=\"45\" data-height=\"45\" data-v-317d1a6e></span></div><div class=\"features-content\" data-v-317d1a6e><h4 class=\"feature-title\" data-v-317d1a6e>Easy to Personalize</h4><p class=\"text-justify\" data-v-317d1a6e> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora quidem vel sint.</p></div></div></div></div></div></div><div class=\"w-full lg:w-1/2\" data-v-317d1a6e><div class=\"mx-3 lg:mr-0 lg:ml-3 wow fadeInRight\" data-wow-delay=\"0.3s\" data-v-317d1a6e><img src=\"https://www.nicepng.com/png/full/192-1924170_recently-a-lot-of-people-talk-about-cryptocurrency.png\" alt=\"\" data-v-317d1a6e></div></div></div></div></div>", 1);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"clients\" class=\"py-16 bg-blue-100\" data-v-317d1a6e><div class=\"container-sm\" data-v-317d1a6e><div class=\"text-center\" data-v-317d1a6e><h2 class=\"mb-12 section-heading wow fadeInDown\" data-wow-delay=\"0.3s\" data-v-317d1a6e>As Seen On</h2></div><div class=\"flex flex-wrap justify-center\" data-v-317d1a6e><div class=\"w-1/2 md:w-1/4 lg:w-1/4\" data-v-317d1a6e><div class=\"m-3 wow fadeInUp\" data-v-317d1a6e><img class=\"client-logo\" width=\"200px\" height=\"200px\" src=\"http://assets.stickpng.com/images/5847e9aacef1014c0b5e4828.png\" alt=\"\" data-v-317d1a6e></div></div><div class=\"w-1/2 md:w-1/4 lg:w-1/4\" data-v-317d1a6e><div class=\"m-3 wow fadeInUp\" data-wow-delay=\"0.6s\" data-v-317d1a6e><img class=\"client-logo\" width=\"200px\" height=\"200px\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Telefe_Noticias_%282017%29.png/1024px-Telefe_Noticias_%282017%29.png\" alt=\"\" data-v-317d1a6e></div></div><div class=\"w-1/2 md:w-1/4 lg:w-1/4\" data-v-317d1a6e><div class=\"m-3 wow fadeInUp\" data-wow-delay=\"0.9s\" data-v-317d1a6e><img class=\"client-logo\" width=\"200px\" height=\"200px\" src=\"https://1000marcas.net/wp-content/uploads/2020/03/logo-BBC.png\" alt=\"\" data-v-317d1a6e></div></div><div class=\"w-1/2 md:w-1/4 lg:w-1/4\" data-v-317d1a6e><div class=\"m-3 wow fadeInUp\" data-wow-delay=\"1.2s\" data-v-317d1a6e><img class=\"client-logo\" width=\"200px\" height=\"200px\" src=\"https://1000marcas.net/wp-content/uploads/2021/04/Bloomberg-logo.png\" alt=\"\" data-v-317d1a6e></div></div></div></div></div>", 1);
+
+var _hoisted_7 = {
+  id: "Subscribes",
+  "class": "text-center py-20 bg-blue-100"
+};
+var _hoisted_8 = {
+  "class": "container"
+};
+var _hoisted_9 = {
+  "class": "flex justify-center mx-3"
+};
+var _hoisted_10 = {
+  "class": "w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
+};
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    "class": "mb-3 section-heading wow fadeInUp"
+  }, "Start For Free", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "mb-4 text-gray-600 text-lg"
+  }, " Create a developers or company account today! ", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = {
+  "class": "flex justify-center mx-5"
+};
+
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "iconify",
+    "data-icon": "mdi:circle-edit-outline",
     style: {
-      "background-color": "#619DF2"
-    }
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Hello World")], -1
+      "color": "#4f46e5"
+    },
+    "data-width": "60",
+    "data-height": "60"
+  }, null, -1
   /* HOISTED */
   );
 });
@@ -21612,6 +21685,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
   var _component_NavBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NavBar");
+
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
 
@@ -21623,7 +21698,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     test: "Walter"
   }, null, 8
   /* PROPS */
-  , ["canLogin", "canRegister"]), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
+  , ["canLogin", "canRegister"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ABOUT"), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" SEEN ON "), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END-SEEN "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" START-FREE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: _ctx.route('register'),
+    "class": "bg-white-200"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_14];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" END-START ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -21810,7 +21897,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-gray-100[data-v-317d1a6e] {\n        background-color: #f7fafc;\n        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));\n}\n.border-gray-200[data-v-317d1a6e] {\n        border-color: #edf2f7;\n        border-color: rgba(237, 242, 247, var(--tw-border-opacity));\n}\n.text-gray-400[data-v-317d1a6e] {\n        color: #cbd5e0;\n        color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n.text-gray-500[data-v-317d1a6e] {\n        color: #a0aec0;\n        color: rgba(160, 174, 192, var(--tw-text-opacity));\n}\n.text-gray-600[data-v-317d1a6e] {\n        color: #718096;\n        color: rgba(113, 128, 150, var(--tw-text-opacity));\n}\n.text-gray-700[data-v-317d1a6e] {\n        color: #4a5568;\n        color: rgba(74, 85, 104, var(--tw-text-opacity));\n}\n.text-gray-900[data-v-317d1a6e] {\n        color: #1a202c;\n        color: rgba(26, 32, 44, var(--tw-text-opacity));\n}\n@media (prefers-color-scheme: dark) {\n.dark\\:bg-gray-800[data-v-317d1a6e] {\n            background-color: #2d3748;\n            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));\n}\n.dark\\:bg-gray-900[data-v-317d1a6e] {\n            background-color: #1a202c;\n            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));\n}\n.dark\\:border-gray-700[data-v-317d1a6e] {\n            border-color: #4a5568;\n            border-color: rgba(74, 85, 104, var(--tw-border-opacity));\n}\n.dark\\:text-white[data-v-317d1a6e] {\n            color: #fff;\n            color: rgba(255, 255, 255, var(--tw-text-opacity));\n}\n.dark\\:text-gray-400[data-v-317d1a6e] {\n            color: #cbd5e0;\n            color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.title[data-v-317d1a6e] { \n        font-size: 35px;\n        font-weight: 900;\n}\n.feature-title[data-v-317d1a6e] {\n        font-size: 25px;\n}\n.section-heading[data-v-317d1a6e] {\n        font-size: 30px;\n        font-weight: 700;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
