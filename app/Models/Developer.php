@@ -17,4 +17,16 @@ class Developer extends Model
         return $this->hasOne(User::class);
     }
 
+    public function skills(){
+        return $this->hasMany(Skill::class);
+    }
+
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
+
+    public function type_developer(){
+        return $this->belongsTo(TypeDeveloper::class, 'type_id');
+    }
+
 }
