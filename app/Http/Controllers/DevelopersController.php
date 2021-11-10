@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Developer;
+use App\Models\Skill;
+use App\Models\TypeDeveloper;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -50,6 +54,7 @@ class DevelopersController extends Controller
      */
     public function show($id)
     {
+        
         return Inertia::render('Developers/Developer');
     }
 
@@ -59,9 +64,20 @@ class DevelopersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $user = User::find($id);
+        $developer = Developer::find($user->developer_id);
+        $developer_skills = Skill::where('developer_id', $developer->id)->get();
+        $type_developer = TypeDeveloper::find($developer->type_id);
+        // dd($developer_skills);
+
+        return Inertia::render('Developers/Edit', [
+            'User' => $user,
+            'Developer' => $developer,
+            'Developer_Skills' => $developer_skills,
+            'Type_Developer' => $type_developer,
+        ]);
+
     }
 
     /**

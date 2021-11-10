@@ -26,11 +26,11 @@ Route::resource('projects', ProjectsController::class);
 
 
 // ? Authenticated Routes
+
 Route::get('/dashboard', function () {
     // ! Testing relationship..
     // dd(Auth::user()->developer->type_developer);
-
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', ['developer' => Auth::user()->developer]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

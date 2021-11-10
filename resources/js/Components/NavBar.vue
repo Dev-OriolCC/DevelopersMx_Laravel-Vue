@@ -4,7 +4,7 @@
             <div class="container px-4 mx-auto md:flex md:items-center">
 
                 <div class="flex justify-between items-center">
-                    <Link :href="route('index')" class="font-bold text-xl text-indigo-600">Developers Mexico</Link>
+                    <Link :href="route('index')" class="font-bold h text-2xl text-indigo-600">Developers Mexico</Link>
                     <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
                         <i class="fas fa-bars"></i>
                     </button>

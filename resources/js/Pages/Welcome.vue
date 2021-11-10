@@ -6,9 +6,12 @@
         <div class="w-full text-center">
             <h1 class="title mt-5">Discover Developers & Tech Companies from Mexico.</h1>
             <div class="text-center  mt-10">
-                <img class="img-fluid mx-auto" src="https://www.pinclipart.com/picdir/big/405-4051189_construction-software-developer-clipart.png" 
+                <img class="img-fluid mx-auto"
+                src="https://www.pinclipart.com/picdir/big/405-4051189_construction-software-developer-clipart.png" 
                 width="450px" height="450px"  alt="">
+                
             </div>
+        
             <!-- ABOUT-->
             <div id="feature" class="bg-blue-100 py-24 mt-5">
                 <div class="container">
