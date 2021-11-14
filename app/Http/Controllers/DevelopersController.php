@@ -70,12 +70,14 @@ class DevelopersController extends Controller
         $developer_skills = Skill::where('developer_id', $developer->id)->get();
         $type_developer = TypeDeveloper::find($developer->type_id);
         // dd($developer_skills);
+        $developerTypes = TypeDeveloper::all();
 
         return Inertia::render('Developers/Edit', [
             'User' => $user,
             'Developer' => $developer,
             'Developer_Skills' => $developer_skills,
             'Type_Developer' => $type_developer,
+            'DeveloperTypes' => $developerTypes,
         ]);
 
     }
@@ -87,8 +89,27 @@ class DevelopersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        $developer = Developer::find($user->developer_id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+
+        $developer->update([
+            'location' => $request->location,
+            'experience' => $request->experience,
+            'type_id' => $request->type_id,
+            'social_github' => $request->social_github,
+            'social_twitter' => $request->social_twitter,
+            // 'social_email' => $request->social_email,
+            'bio' => $request->bio,
+
+        ]);
+
+        return redirect(route('dashboard'));
+        
         //
     }
 

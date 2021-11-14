@@ -8,7 +8,7 @@
             <section class="relative py-16">
                 <div class="container mx-auto px-4">
                     <div class="relative flex flex-col min-w-0 break-words bg-white mb-6 shadow-xl rounded-lg -mt-64">
-                        <form class="w-full">
+                        <form class="w-full" @submit.prevent="update">
                             <!--//! EDIT Information about developer -->
                             <div class="px-6 mt-10 mb-10">
                                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -50,9 +50,16 @@
                                             <label class="block uppercase tracking-wide text-blue-700 text-xs font-bold mb-2" for="type_developer">
                                                 Type of Developer
                                             </label>
-                                            <BreezeInput id="type_developer" type="text" class="mt-1 block w-full" 
+                                            <select v-model="form.type_id" name="type_id" id="type_id" >
+                                                <option v-for="type in DeveloperTypes" :value="type.id">
+                                                    {{type.name}}
+                                                </option>
+
+                                                <!-- <option  v-for="type in DeveloperTypes" value="type.id">{{type.name}}</option> -->
+                                            </select>
+                                            <!-- <BreezeInput id="type_developer" type="text" class="mt-1 block w-full" 
                                                 v-model="form.type_developer" required autofocus autocomplete="type_developer" 
-                                            />
+                                            /> -->
                                         </div>
                                         <!-- // ? FOUR -->
                                         <div class="w-full md:w-1/3 px-3 mt-4">
@@ -79,8 +86,27 @@
                                                 v-model="form.social_email" required autofocus autocomplete="social_email" 
                                             />
                                         </div>
-                                        
+                                        <div class="w-full md:w-1/1 px-3 mt-4">
+                                            <label class="block uppercase tracking-wide text-blue-700 text-xs font-bold mb-2" for="bio">
+                                                Bio
+                                            </label>
+                                            <BreezeInput id="bio" type="text" class="mt-1 block w-full" 
+                                                v-model="form.bio" required autofocus autocomplete="bio" 
+                                            />
+                                        </div>
+                                        <div class="w-full md:w-1/1 px-3 mt-4">
+                                            <label class="block uppercase tracking-wide text-blue-700 text-xs font-bold mb-2" for="description">
+                                                Description
+                                            </label>
+                                            <textarea name="description" id="description"
+                                            class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg" cols="" rows="2" v-model="form.description">
 
+                                            </textarea>
+                                        </div>
+                                        <!-- BUTTON -->
+                                        <button class="bg-indigo-600 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
+                                        type="button" @click="update">Update Profile</button>
+                                        
                                     </div>
 
                             </div>
@@ -95,6 +121,7 @@
         <p>Developer: {{this.Developer}} </p> <br>
         <p>User: {{this.User}} </p>
         <p>User: {{this.Type_Developer}} </p>
+        <p>User: {{this.DeveloperTypes}} </p>
         
     </BreezeAuthenticatedLayout>
 </template>
@@ -104,7 +131,6 @@ import { Head } from '@inertiajs/inertia-vue3';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
 import BreezeInput from '@/Components/Input.vue'
 
-    
 export default {
     // name: "DeveloperEdit",
     
@@ -117,6 +143,7 @@ export default {
         Developer: Object,
         Developer_Skills: Array,
         Type_Developer: Object,
+        DeveloperTypes: Array,
     },
 
     remember: 'form',
@@ -133,10 +160,22 @@ export default {
                     social_github: this.Developer.social_github,
                     social_twitter: this.Developer.social_twitter,
                     social_email: this.Developer.social_email,
-                    type_developer: this.Type_Developer.name,
+                    //
+                    bio: this.Developer.bio,
+                    //
+                    type_id: this.Developer.type_id,
                 }),
         }
     },
+
+    methods: {
+        update(){
+            if (confirm('Are you sure you want to update?')) {
+                this.form.put(this.route('developers.update', this.User.id))
+                console.log('Walter');
+            }
+        }
+    }
 
 }
 </script>
