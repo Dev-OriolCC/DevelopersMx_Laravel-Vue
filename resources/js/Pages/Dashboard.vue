@@ -73,18 +73,18 @@
                                     </div>
                                     <div class="w-full lg:w-4/12 px-4 lg:order-1">
                                         <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                                            <div class="mr-4 p-3 text-center">
+                                            <div v-if="this.developer.social_twitter" class="mr-4 p-3 text-center">
                                                 <a href="#" class="footer-icon hover:bg-blue-400">
                                                     <span class="iconify" data-icon="mdi:twitter" data-width="35" data-height="35"></span>
                                                 </a>
                                             </div>
-                                            <div class="mr-4 p-3 text-center">
+                                            <div v-if="this.developer.social_github" class="mr-4 p-3 text-center">
                                                 <a href="#" class="footer-icon hover:bg-blue-400">
-                                                    <span class="iconify" data-icon="mdi:facebook" data-width="35" data-height="35"></span>
+                                                    <span class="iconify" data-icon="mdi:github" data-width="35" data-height="35"></span>
                                                 </a>
                                             </div>
                                             <div class="lg:mr-4 p-3 text-center">
-                                                <a href="#" class="footer-icon hover:bg-blue-400">
+                                                <a v-if="this.developer.social_email" href="#" class="footer-icon hover:bg-blue-400">
                                                     <span class="iconify" data-icon="mdi:email" data-width="35" data-height="35"></span>
                                                 </a>
                                             </div>
@@ -93,17 +93,17 @@
                                 </div>
                                 <!-- GENERAL INFO -->
                                 <div class="text-center align-center mt-12">
-                                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">Jenna Stones</h3>
+                                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">{{ this.user.name }}</h3>
                                     <div class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">                                        
-                                        🏢🚩Los Angeles, California
+                                        🏢🚩{{ this.developer.location }}, Mexico
                                     </div>
-                                    <div class="mb-2 text-gray-700 mt-4">
+                                    <div v-if="this.type_developer" class="mb-2 text-gray-700 mt-4">
                                         <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
-                                        >BackEnd Developer
+                                        ><b>{{ this.type_developer.name }}</b>
                                     </div>
                                     <div class="mb-2 text-gray-700">
                                         <i class="fas fa-university mr-2 text-lg text-gray-500"></i
-                                        >3 Years of experience
+                                        >{{ this.developer.experience }} Years of experience
                                     </div>
                                 </div>
                                 <!-- END-GENERAL INFO -->
@@ -112,13 +112,11 @@
                                 <div class="mt-10 py-10 border-t border-gray-300 text-center">
                                     <div class="flex flex-wrap justify-center">
                                         <div class="w-full lg:w-9/12 px-4">
-                                            <p class="mb-4 text-lg leading-relaxed text-gray-800 text-justify">
-                                                An artist of considerable range, Jenna the name taken by
-                                                Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                                                performs and records all of his own music, giving it a
-                                                warm, intimate feel with a solid groove structure. An
-                                                artist of considerable range.
-                                                <b>{{ this.developer.username }}</b>
+                                            <p v-if="this.developer.description" class="mb-4 text-lg leading-relaxed text-gray-800 text-justify">
+                                                {{ this.developer.description }}
+                                            </p>
+                                            <p v-else>
+                                                <i>Enter a description about yourself to make this profile more interesting.</i> 😎👍
                                             </p>
                                         </div>
                                     </div>
@@ -151,6 +149,8 @@ export default {
 
     props: {
         developer: Object,
+        user: Object,
+        type_developer: Object,
     },
 }
 </script>

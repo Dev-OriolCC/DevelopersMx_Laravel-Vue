@@ -14,10 +14,14 @@
                                 </Link>
                             </div>
 
-                            <!-- Navigation Links -->
+                            <!-- //! Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Profile
+                                </BreezeNavLink>
+
+                                <BreezeNavLink :href="route('profile.skills')" :active="route().current('profile.skills')">
+                                    Skills
                                 </BreezeNavLink>
                             </div>
                         </div>
@@ -59,11 +63,14 @@
                     </div>
                 </div>
 
-                <!-- Responsive Navigation Menu -->
+                <!-- //! Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Profile
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('profile.skills')" :active="route().current('profile.skills')">
+                            Skills
                         </BreezeResponsiveNavLink>
                     </div>
 

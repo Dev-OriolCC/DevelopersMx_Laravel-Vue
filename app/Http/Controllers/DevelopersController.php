@@ -7,6 +7,7 @@ use App\Models\Skill;
 use App\Models\TypeDeveloper;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,12 +17,28 @@ class DevelopersController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * * Returns all developers
+     * * Not Authenticated
      */
     public function index()
     {
         return Inertia::render('Developers/Index', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+        ]);
+    }
+
+    public function profileDeveloper() {
+        $user = Auth::user();
+        $developer = Auth::user()->developer;
+        $type_developer = '';
+        if ($developer->type_id != null) {
+            $type_developer = TypeDeveloper::find($developer->type_id);
+        }
+        return Inertia::render('Dashboard', [
+            'user' => $user,
+            'developer' => $developer,
+            'type_developer' => $type_developer,
         ]);
     }
 
@@ -105,7 +122,7 @@ class DevelopersController extends Controller
             'social_twitter' => $request->social_twitter,
             // 'social_email' => $request->social_email,
             'bio' => $request->bio,
-
+            'description' => $request->description,
         ]);
 
         return redirect(route('dashboard'));

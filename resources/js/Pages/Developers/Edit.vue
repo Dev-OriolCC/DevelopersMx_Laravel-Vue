@@ -103,8 +103,14 @@
 
                                             </textarea>
                                         </div>
+                                        <!--  -->
+                                        <Link :href="route('dashboard')"  
+                                            class="bg-red-600 uppercase text-white font-bold hover:shadow-md 
+                                            shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1">
+                                            Cancel
+                                        </Link>
                                         <!-- BUTTON -->
-                                        <button class="bg-indigo-600 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
+                                        <button class="bg-indigo-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
                                         type="button" @click="update">Update Profile</button>
                                         
                                     </div>
@@ -118,16 +124,16 @@
         </div>
     </div>
 
-        <p>Developer: {{this.Developer}} </p> <br>
+        <!-- <p>Developer: {{this.Developer}} </p> <br>
         <p>User: {{this.User}} </p>
         <p>User: {{this.Type_Developer}} </p>
-        <p>User: {{this.DeveloperTypes}} </p>
+        <p>User: {{this.DeveloperTypes}} </p> -->
         
     </BreezeAuthenticatedLayout>
 </template>
 
 <script>
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head, Link } from '@inertiajs/inertia-vue3';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
 import BreezeInput from '@/Components/Input.vue'
 
@@ -135,7 +141,7 @@ export default {
     // name: "DeveloperEdit",
     
     components: {
-        Head, BreezeAuthenticatedLayout, BreezeInput
+        Head, Link, BreezeAuthenticatedLayout, BreezeInput
     },
     
     props: {
