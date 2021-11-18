@@ -9,7 +9,7 @@ class Skill extends Model
 {
     // use HasFactory;
     public $incrementing = false;
-    protected $fillable = ['name', 'description', 'developer_id'];
+    protected $fillable = ['id','name', 'description', 'developer_id'];
 
     public function developer(){
         return $this->belongsTo(Developer::class);

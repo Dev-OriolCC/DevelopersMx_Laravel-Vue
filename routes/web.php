@@ -28,7 +28,9 @@ Route::resource('projects', ProjectsController::class);
 // ? Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])->name('dashboard');
-    Route::get('/skills', [SkillsController::class, 'profileSkills'])->name('profile.skills');
+    Route::get('/skillsProfile', [SkillsController::class, 'profileSkills'])->name('profile.skills');
+    Route::resource('skills', SkillsController::class);
+
 });
 
 // Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])
