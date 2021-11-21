@@ -38,7 +38,7 @@
                                     <div class="ml-3">
                                         <button class="bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none
                                         mt-4 focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
-                                        type="button" @click="addNewSkill">Add New Skill</button>
+                                        type="submit" @click="addNewSkill">Add New Skill</button>
                                     </div>
                                     <div class="ml-3">
                                         <button class="bg-red-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded inline-flex 
@@ -109,7 +109,7 @@
                 </div>
         </section>
                     <!-- MODAL EDIT -->
-                <div v-if="modalOpen == true" class="container flex justify-center mx-auto">
+                    <div v-if="modalOpen == true" class="container flex justify-center mx-auto">
                         <div class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
                             <div class="max-w-2xl p-6 bg-white">
                                 <div class="flex items-center justify-between">
@@ -141,7 +141,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- END MODAL -->
 
     </BreezeAuthenticatedLayout>

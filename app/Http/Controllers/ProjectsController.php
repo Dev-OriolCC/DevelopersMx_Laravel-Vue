@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 
@@ -13,9 +14,20 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return Inertia::render('Projects/Index');
+    }
+
+    /**
+     * @return Athenticated
+     */
+    public function profileProjects() {
+        $projects = Auth::user()->developer->projects->all();
+        $totalProjects = count($projects);
+        return Inertia::render('Projects/ProfileProjects', [
+            'projects' => $projects,
+            'totalProjects' => $totalProjects
+        ]);
     }
 
     /**
@@ -23,9 +35,13 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $developer = Auth::user()->developer;
+        // dd($developer);
+        // ! VIEW Probably going to change to CREATE
+        return Inertia::render('Projects/Edit', [
+            'developer' => $developer
+        ]);
     }
 
     /**

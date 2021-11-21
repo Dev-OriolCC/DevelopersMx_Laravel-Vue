@@ -7,7 +7,7 @@
             <h1 class="title mt-5">Discover Developers & Tech Companies from Mexico.</h1>
             <div class="text-center  mt-10">
                 <img class="img-fluid mx-auto"
-                src="https://www.pinclipart.com/picdir/big/405-4051189_construction-software-developer-clipart.png" 
+                src="" 
                 width="450px" height="450px"  alt="">
                 
             </div>

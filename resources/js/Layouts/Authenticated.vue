@@ -23,6 +23,10 @@
                                 <BreezeNavLink :href="route('profile.skills')" :active="route().current('profile.skills')">
                                     Skills
                                 </BreezeNavLink>
+
+                                <BreezeNavLink :href="route('profile.projects')" :active="route().current('profile.projects')">
+                                    Projects
+                                </BreezeNavLink>
                             </div>
                         </div>
 
@@ -71,6 +75,9 @@
                         </BreezeResponsiveNavLink>
                         <BreezeResponsiveNavLink :href="route('profile.skills')" :active="route().current('profile.skills')">
                             Skills
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('profile.projects')" :active="route().current('profile.projects')">
+                            Projects
                         </BreezeResponsiveNavLink>
                     </div>
 
