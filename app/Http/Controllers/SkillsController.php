@@ -56,6 +56,9 @@ class SkillsController extends Controller
      */
     public function store(Request $request) {
         $user = Auth::user();
+        if ($user == null || $request->name == null) {
+            return redirect(route('profile.skills'));    
+        }
         Skill::create([
             'id' => Str::uuid(),
             'developer_id' => $user->developer_id,

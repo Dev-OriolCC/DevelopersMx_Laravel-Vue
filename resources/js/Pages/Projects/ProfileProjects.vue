@@ -26,8 +26,11 @@
                     <div class="mt-10 bg-gray-100 flex mx-5 items-center justify-center py-50">
                         <div class="max-w-md bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 
                             transform transition-all duration-500">
-                            <div class="p-4">
-                                <img class="rounded-xl" src="https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80" alt="Dog" />
+                            <div v-if="project.project_image" class="p-4">
+                                <img class="rounded-xl" :src="this.public+'storage/'+project.project_image" width="250" height="250" alt="no-image" />
+                            </div>
+                            <div v-else>
+                                <img class="rounded-xl" :src="this.public+'images/no-image.jpg'" width="250" height="250" alt="Dog" />
                             </div>
                             <div class="flex justify-between p-6">
                                 <div class="flex items-center space-x-4">
@@ -41,8 +44,20 @@
                                         <span class="iconify" data-icon="mdi:application-outline" data-width="25" data-height="25"></span>
                                     </div>
                                 </div>
-                                
                             </div>
+                            <div class="flex justify-between p-6">
+                                <button class="flex items-center space-x-4 bg-blue-600 uppercase text-white font-bold 
+                                    hover:shadow-md shadow text-xs px-2 py-2 rounded focus:outline-none sm:mr-2 mb-1">
+                                    Edit
+                                </button>
+                                <!-- DELETE -->
+                                <button class="flex items-center space-x-4 bg-red-600 uppercase text-white font-bold 
+                                    hover:shadow-md shadow text-xs px-2 py-2 rounded focus:outline-none sm:mr-2 mb-1"
+                                    @click="deleteProject(project.id, project.title)">
+                                    Delete
+                                </button>
+                            </div>
+                            
                         </div>
                     </div>
                     <!-- END - CARD -->
@@ -67,6 +82,18 @@ export default {
     props: {
         totalProjects: Number,
         projects: Array,
+    },
+    data() {
+        return { 
+            public: 'http://localhost/Inertia/DevelopersMexico/public/'
+        }
+    },
+    methods: {
+        deleteProject(id, title) {
+            if (confirm('Are you sure you want to delete this skill: '+title+' ?')) {
+                this.$inertia.delete(this.route('projects.destroy', id))
+            }
+        }
     }
 }
 </script>

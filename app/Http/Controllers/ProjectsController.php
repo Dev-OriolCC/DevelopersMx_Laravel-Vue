@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
+
 
 
 class ProjectsController extends Controller
@@ -50,9 +55,23 @@ class ProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $user = Auth::user();
+        $project_image = '';
+        if ($request->hasFile('project_image')){
+            $project_image = $request->file('project_image')->store('images', 'public');
+        }
+        Project::create([
+            'id' => Str::uuid(),
+            'developer_id' => $user->developer_id,
+            'title' => $request->title,
+            // ! HERE END
+            'description' => $request->description,
+            'demo_link' => $request->demo_link,
+            'repo_link' => $request->repo_link,
+            'project_image' => $project_image,
+        ]);
+        return redirect(route('profile.projects'));
     }
 
     /**
@@ -61,8 +80,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         return Inertia::render('Projects/Project');
     }
 
@@ -72,8 +90,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -95,8 +112,12 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        $project = Project::find($id);
+        if ($project->project_image != null) {
+            Storage::delete('public/images/'.$project->project_image);
+        }
+        $project->delete();
+        return redirect(route('profile.projects'));
     }
 }

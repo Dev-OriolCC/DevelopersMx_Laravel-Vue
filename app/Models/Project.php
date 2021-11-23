@@ -10,7 +10,7 @@ class Project extends Model
     // use HasFactory;
     public $incrementing = false;
 
-    protected $fillable = ['developer_id', 'title', 'project_image', 'description', 'demo_link', 'repo_link'];
+    protected $fillable = ['id' ,'developer_id', 'title', 'project_image', 'description', 'demo_link', 'repo_link'];
 
 
     public function developer(){
