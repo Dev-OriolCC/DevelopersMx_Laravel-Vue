@@ -91,7 +91,11 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $project = Project::find($id);
+        // dd($project);
+        return Inertia::render('Projects/Edit', [
+            'project' => $project
+        ]);
     }
 
     /**
@@ -101,9 +105,31 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $user = Auth::user();
+        // dd($request->project_image);
+        $project = Project::find($id);
+        $dataProject = $request->only(['title', 'description', 'demo_link', 'repo_link']);
+        if ($request->hasFile('project_image')) {
+            Storage::delete('public/'.$project->project_image);
+            $dataProject['project_image'] = $request->file('project_image')->store('images', 'public');
+        }
+
+        $project->update($dataProject);
+        return redirect(route('profile.projects'));
+    }
+
+    public function updateProject(Request $request, $id) {
+        $project = Project::find($id);
+        // dd($request);
+        $dataProject = $request->only(['title', 'description', 'demo_link', 'repo_link']);
+        if ($request->hasFile('project_image')) {
+            Storage::delete('public/'.$project->project_image);
+            $dataProject['project_image'] = $request->file('project_image')->store('images', 'public');
+        }
+
+        $project->update($dataProject);
+        return redirect(route('profile.projects'));
     }
 
     /**
@@ -115,7 +141,7 @@ class ProjectsController extends Controller
     public function destroy($id) {
         $project = Project::find($id);
         if ($project->project_image != null) {
-            Storage::delete('public/images/'.$project->project_image);
+            Storage::delete('public/'.$project->project_image);
         }
         $project->delete();
         return redirect(route('profile.projects'));

@@ -24,6 +24,8 @@ Route::resource('developers', DevelopersController::class);
 Route::resource('companies', CompaniesController::class);
 Route::resource('projects', ProjectsController::class);
 
+Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject');
+
 
 // ? Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {

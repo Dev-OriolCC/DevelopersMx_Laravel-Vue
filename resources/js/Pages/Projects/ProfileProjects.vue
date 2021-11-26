@@ -26,12 +26,14 @@
                     <div class="mt-10 bg-gray-100 flex mx-5 items-center justify-center py-50">
                         <div class="max-w-md bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 
                             transform transition-all duration-500">
+                            <!-- Images Section -->
                             <div v-if="project.project_image" class="p-4">
-                                <img class="rounded-xl" :src="this.public+'storage/'+project.project_image" width="250" height="250" alt="no-image" />
+                                <img class="rounded-xl" :src="this.public+'storage/'+project.project_image" width="300" height="250" alt="no-image" />
                             </div>
                             <div v-else>
                                 <img class="rounded-xl" :src="this.public+'images/no-image.jpg'" width="250" height="250" alt="Dog" />
                             </div>
+                            <!-- END - Images Section -->
                             <div class="flex justify-between p-6">
                                 <div class="flex items-center space-x-4">
                                     <h1 class="text-lg text-gray-900 font-bold">{{ project.title }}</h1>
@@ -46,10 +48,11 @@
                                 </div>
                             </div>
                             <div class="flex justify-between p-6">
-                                <button class="flex items-center space-x-4 bg-blue-600 uppercase text-white font-bold 
-                                    hover:shadow-md shadow text-xs px-2 py-2 rounded focus:outline-none sm:mr-2 mb-1">
+                                <Link class="flex items-center space-x-4 bg-blue-600 uppercase text-white font-bold 
+                                    hover:shadow-md shadow text-xs px-2 py-2 rounded focus:outline-none sm:mr-2 mb-1"
+                                    :href="route('projects.edit',project.id)">
                                     Edit
-                                </button>
+                                </Link>
                                 <!-- DELETE -->
                                 <button class="flex items-center space-x-4 bg-red-600 uppercase text-white font-bold 
                                     hover:shadow-md shadow text-xs px-2 py-2 rounded focus:outline-none sm:mr-2 mb-1"
