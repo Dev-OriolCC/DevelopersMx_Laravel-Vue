@@ -66,6 +66,8 @@
                                             />
                                         </div>
 
+                                        <!-- VERIFY IF CREATE OR UPDATE -->
+
                                         <div v-if="this.project">
                                             <button class="bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none
                                             mt-4 focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
@@ -81,8 +83,6 @@
                                             <Link :href="route('profile.projects')" class="bg-red-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded inline-flex 
                                             mt-4 focus:outline-none sm:mr-2 mb-1">Cancel</Link>
                                         </div>
-
-                                        
                                         
                                     </div>
                                 </div>
@@ -161,7 +161,6 @@ export default {
 
         verifyImage(){
             if (this.$refs.photo) {
-                // this.form.project_image = this.$refs.photo.files[0];
                 return true
             }
             return false

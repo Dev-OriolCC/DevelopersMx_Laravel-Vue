@@ -119,6 +119,7 @@ class ProjectsController extends Controller
         return redirect(route('profile.projects'));
     }
 
+    // ? CORRECT ONE [METHOD MUST BE POST]
     public function updateProject(Request $request, $id) {
         $project = Project::find($id);
         // dd($request);

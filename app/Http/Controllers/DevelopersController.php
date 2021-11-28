@@ -9,7 +9,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+
 
 class DevelopersController extends Controller
 {
@@ -99,6 +101,23 @@ class DevelopersController extends Controller
 
     }
 
+    public function updateDeveloper(Request $request, $id) {
+        $user = User::find($id);
+        $developer = Developer::find($user->developer_id);
+        
+        $userData = $request->only(['name', 'email']); 
+        $developerData = $request->only(['location', 'experience', 'type_id', 'social_github', 'social_twitter', 'bio', 'description']);
+        $user->update($userData);
+
+        if ($request->hasFile('profile_pic')) {
+            Storage::delete('public/'.$developer->profile_pic);
+            $developerData['profile_pic'] = $request->file('profile_pic')->store('images/profiles', 'public');
+        }
+        $developer->update($developerData);
+
+        return redirect(route('dashboard'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -107,25 +126,7 @@ class DevelopersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
-        $user = User::find($id);
-        $developer = Developer::find($user->developer_id);
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email
-        ]);
-
-        $developer->update([
-            'location' => $request->location,
-            'experience' => $request->experience,
-            'type_id' => $request->type_id,
-            'social_github' => $request->social_github,
-            'social_twitter' => $request->social_twitter,
-            // 'social_email' => $request->social_email,
-            'bio' => $request->bio,
-            'description' => $request->description,
-        ]);
-
-        return redirect(route('dashboard'));
+        
         
         //
     }
@@ -136,8 +137,7 @@ class DevelopersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }

@@ -33,7 +33,7 @@
                             <div v-else>
                                 <img class="rounded-xl" :src="this.public+'images/no-image.jpg'" width="250" height="250" alt="Dog" />
                             </div>
-                            <!-- END - Images Section -->
+                            <!-- END - ICONS Section -->
                             <div class="flex justify-between p-6">
                                 <div class="flex items-center space-x-4">
                                     <h1 class="text-lg text-gray-900 font-bold">{{ project.title }}</h1>

@@ -52,12 +52,22 @@
                                     <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                                         <div class="relative">
                                             <!-- CIRCLE-PROFILE -->
-                                            <img
+                                            <div v-if="this.developer.profile_pic">
+                                                <img
                                                 alt="..."
-                                                src="https://pickaface.net/gallery/avatar/unr_admin_171016_2225_zewhi.png"
+                                                :src="this.image+this.developer.profile_pic"
                                                 class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                                                 style="max-width: 150px;"
-                                            />
+                                                />
+                                            </div>
+                                            <div v-else>
+                                                <img
+                                                alt="..."
+                                                src="https://previews.123rf.com/images/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-default-avatar-profile-icon-for-male-grey-photo-placeholder-illustrations-vector.jpg"
+                                                class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                                                style="max-width: 150px;"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
@@ -152,5 +162,10 @@ export default {
         user: Object,
         type_developer: Object,
     },
+    data () {
+        return { 
+            image: 'http://localhost/Inertia/DevelopersMexico/public/storage/',
+        }
+    }
 }
 </script>

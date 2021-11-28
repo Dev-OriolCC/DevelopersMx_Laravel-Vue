@@ -2,6 +2,8 @@
     <Head title="Skills" />
 
     <BreezeAuthenticatedLayout>
+        <!--//! BUG: with flex causing page to shake while typing on forms (desktop-size)  -->
+        <!--//! probably issue caused by multiple flex clases  -->
         <section class="relative py-16">
                 <div class="container mx-auto px-4">
                     <p>Total Skills: {{this.totalSkills}}</p>

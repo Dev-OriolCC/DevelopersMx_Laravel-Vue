@@ -13,7 +13,7 @@
                             <div class="px-6 mt-10 mb-10">
                                     <div class="flex flex-wrap -mx-3 mb-6">
                                         <!-- // ? TWO -->
-                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                             <label class="block uppercase tracking-wide text-blue-700 text-xs font-bold mb-2" for="name">
                                                 Name
                                             </label>
@@ -21,12 +21,24 @@
                                                 v-model="form.name" required autofocus autocomplete="name" 
                                             />
                                         </div>
-                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                             <label class="block uppercase tracking-wide text-blue-700 text-xs font-bold mb-2" for="email">
                                                 Email
                                             </label>
                                             <BreezeInput id="email" type="text" class="mt-1 block w-full" 
                                                 v-model="form.email" required autofocus autocomplete="email" 
+                                            />
+                                        </div>
+                                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                            <label class="block uppercase tracking-wide text-blue-700 text-xs font-bold mb-2" for="profile_pic">
+                                                Profile Picture
+                                            </label>
+                                            <div v-if="this.form.profile_pic">
+                                                <img :src="this.image+'storage/'+this.form.profile_pic" alt="image-project" 
+                                                width="100" height="100" class="mb-2" >
+                                            </div>
+                                            <input type="file" ref="photo" class="w-full px-2 py-1 border rounded-md focus:outline-none
+                                                focus:ring-1 focus:ring-blue-600"
                                             />
                                         </div>
                                         <!-- // ? THREE -->
@@ -54,12 +66,7 @@
                                                 <option v-for="type in DeveloperTypes" :value="type.id">
                                                     {{type.name}}
                                                 </option>
-
-                                                <!-- <option  v-for="type in DeveloperTypes" value="type.id">{{type.name}}</option> -->
                                             </select>
-                                            <!-- <BreezeInput id="type_developer" type="text" class="mt-1 block w-full" 
-                                                v-model="form.type_developer" required autofocus autocomplete="type_developer" 
-                                            /> -->
                                         </div>
                                         <!-- // ? FOUR -->
                                         <div class="w-full md:w-1/3 px-3 mt-4">
@@ -171,15 +178,25 @@ export default {
                     //
                     type_id: this.Developer.type_id,
                 }),
+            image: 'http://localhost/Inertia/DevelopersMexico/public/',
         }
     },
 
     methods: {
         update(){
             if (confirm('Are you sure you want to update?')) {
-                this.form.put(this.route('developers.update', this.User.id))
-                console.log('Walter');
+                let image = this.verifyImage()
+                if (image) {
+                    this.form.profile_pic = this.$refs.photo.files[0];
+                }
+                this.form.post(this.route('developers.updateDeveloper', this.User.id))
             }
+        },
+        verifyImage(){
+            if (this.$refs.photo) {
+                return true
+            }
+            return false
         }
     }
 

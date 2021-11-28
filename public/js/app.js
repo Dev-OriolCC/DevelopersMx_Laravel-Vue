@@ -20083,6 +20083,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
       this.form.post(this.route('projects.store'));
+    },
+    updateProject: function updateProject(id) {
+      // console.log(this.$refs.photo.files[0].name)       
+      var image = this.verifyImage();
+
+      if (image) {
+        this.form.project_image = this.$refs.photo.files[0];
+      } // this.form.project_image = this.$refs.photo.files[0];
+      // this.form.post(this.route('projects.update', id))
+
+
+      this.form.post(this.route('updateProject', id));
+    },
+    verifyImage: function verifyImage() {
+      if (this.$refs.photo) {
+        // this.form.project_image = this.$refs.photo.files[0];
+        return true;
+      }
+
+      return false;
     }
   }
 });
@@ -22529,13 +22549,17 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_21 = {
-  "class": "ml-3"
+  key: 0
 };
 var _hoisted_22 = {
+  key: 1,
+  "class": "ml-3"
+};
+var _hoisted_23 = {
   "class": "ml-3"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Cancel");
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Cancel");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
@@ -22554,7 +22578,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         "class": "w-full",
-        onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+        onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return _ctx.update && _ctx.update.apply(_ctx, arguments);
         }, ["prevent"])),
         enctype: "multipart/form-data"
@@ -22617,19 +22641,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         autocomplete: "repo_link"
       }, null, 8
       /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      , ["modelValue"])]), _this.project ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none mt-4 focus:outline-none sm:mr-2 mb-1",
         tabindex: "-1",
         type: "button",
-        onClick: _cache[4] || (_cache[4] = function () {
+        onClick: _cache[4] || (_cache[4] = function ($event) {
+          return $options.updateProject(_this.project.id);
+        })
+      }, "Update Project")])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        "class": "bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none mt-4 focus:outline-none sm:mr-2 mb-1",
+        tabindex: "-1",
+        type: "button",
+        onClick: _cache[5] || (_cache[5] = function () {
           return $options.addNewProject && $options.addNewProject.apply($options, arguments);
         })
-      }, "Add New Project")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+      }, "Add New Project")])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
         href: _ctx.route('profile.projects'),
         "class": "bg-red-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded inline-flex mt-4 focus:outline-none sm:mr-2 mb-1"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_23];
+          return [_hoisted_24];
         }),
         _: 1
         /* STABLE */

@@ -24,7 +24,8 @@ Route::resource('developers', DevelopersController::class);
 Route::resource('companies', CompaniesController::class);
 Route::resource('projects', ProjectsController::class);
 
-Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject');
+Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject'); //* replace-update
+Route::post('developers/updateDeveloper/{id}', [DevelopersController::class, 'updateDeveloper'])->name('developers.updateDeveloper'); //* replace-update
 
 
 // ? Authenticated Routes
