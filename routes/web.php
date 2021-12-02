@@ -19,25 +19,25 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/api', [HomeController::class, 'api'])->name('api');
+Route::resource('developers', DevelopersController::class)->only(['index', 'show']);
+
 // ! Resource routes
-Route::resource('developers', DevelopersController::class);
 Route::resource('companies', CompaniesController::class);
 Route::resource('projects', ProjectsController::class);
 
-Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject'); //* replace-update
-Route::post('developers/updateDeveloper/{id}', [DevelopersController::class, 'updateDeveloper'])->name('developers.updateDeveloper'); //* replace-update
-
-
 // ? Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])->name('dashboard');
+    Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])->name('dashboard');//* Main auth index
     Route::resource('skills', SkillsController::class);
+    Route::resource('developers', DevelopersController::class)->except(['index', 'show']);
+
+    Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject'); //* replace-update
+    Route::post('developers/updateDeveloper/{id}', [DevelopersController::class, 'updateDeveloper'])->name('developers.updateDeveloper'); //* replace-update
+
     // ? Profile routes
     Route::get('/skillsProfile', [SkillsController::class, 'profileSkills'])->name('profile.skills');
     route::get('/projectsProfile', [ProjectsController::class, 'profileProjects'])->name('profile.projects');
 });
 
-// Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])
-// ->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

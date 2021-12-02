@@ -4,12 +4,10 @@
     <NavBar :canLogin="this.canLogin" :canRegister="this.canRegister" test="Walter"></NavBar>
     <div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0" style="background-color: #619DF2">
         <div class="w-full text-center">
-            <h1 class="title mt-5">Discover Developers & Tech Companies from Mexico.</h1>
+            <h1 class="title mt-5 text-white">Discover Developers & Tech Companies from Mexico</h1>
             <div class="text-center  mt-10">
-                <img class="img-fluid mx-auto"
-                src="" 
-                width="450px" height="450px"  alt="">
-                
+                <img class="img-fluid mx-auto" :src="this.image+'index-1.png'" 
+                width="350" height="350" alt="image-1">
             </div>
         
             <!-- ABOUT-->
@@ -69,7 +67,7 @@
                         </div>
                         <div class="w-full lg:w-1/2">
                             <div class="mx-3 lg:mr-0 lg:ml-3 wow fadeInRight" data-wow-delay="0.3s">
-                            <img src="https://www.nicepng.com/png/full/192-1924170_recently-a-lot-of-people-talk-about-cryptocurrency.png" alt="">
+                            <img :src="this.image+'index-2.png'" alt="">
                         </div>
                     </div>
                 </div>
@@ -87,22 +85,22 @@
                 <div class="flex flex-wrap justify-center">
                     <div class="w-1/2 md:w-1/4 lg:w-1/4">
                         <div class="m-3 wow fadeInUp">
-                            <img class="client-logo" width="200px" height="200px" src="http://assets.stickpng.com/images/5847e9aacef1014c0b5e4828.png" alt="">
+                            <img class="client-logo" width="200" height="200" :src="this.image+'index-icon-1.png'" alt="">
                         </div>
                     </div>
                     <div class="w-1/2 md:w-1/4 lg:w-1/4">
                         <div class="m-3 wow fadeInUp" data-wow-delay="0.6s">
-                            <img class="client-logo" width="200px" height="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Telefe_Noticias_%282017%29.png/1024px-Telefe_Noticias_%282017%29.png" alt="">
+                            <img class="client-logo" width="200" height="200" :src="this.image+'index-icon-2.png'" alt="">
                         </div>
                     </div>
                     <div class="w-1/2 md:w-1/4 lg:w-1/4">
                         <div class="m-3 wow fadeInUp" data-wow-delay="0.9s">
-                            <img class="client-logo" width="200px" height="200px" src="https://1000marcas.net/wp-content/uploads/2020/03/logo-BBC.png" alt="">
+                            <img class="client-logo" width="200" height="200" :src="this.image+'index-icon-3.png'" alt="">
                         </div>
                     </div>
                     <div class="w-1/2 md:w-1/4 lg:w-1/4">
                         <div class="m-3 wow fadeInUp" data-wow-delay="1.2s">
-                            <img class="client-logo" width="200px" height="200px" src="https://1000marcas.net/wp-content/uploads/2021/04/Bloomberg-logo.png" alt="">
+                            <img class="client-logo" width="200" height="200" :src="this.image+'index-icon-4.png'" alt="">
                         </div>
                     </div>
                 </div>
@@ -166,5 +164,10 @@ export default {
         laravelVersion: String,
         phpVersion: String,
     },
+    data () {
+        return { 
+            image: 'http://localhost/Inertia/DevelopersMexico/public/images/',
+        }
+    }
 }
 </script>
