@@ -19,15 +19,16 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/api', [HomeController::class, 'api'])->name('api');
+// ! Resource Routes
 Route::resource('developers', DevelopersController::class)->only(['index', 'show']);
 
-// ! Resource routes
 Route::resource('companies', CompaniesController::class);
 Route::resource('projects', ProjectsController::class);
 
 // ? Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])->name('dashboard');//* Main auth index
+    // ! Resource Routes
     Route::resource('skills', SkillsController::class);
     Route::resource('developers', DevelopersController::class)->except(['index', 'show']);
 

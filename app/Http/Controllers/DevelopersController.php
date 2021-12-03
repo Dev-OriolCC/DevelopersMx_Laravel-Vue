@@ -22,11 +22,15 @@ class DevelopersController extends Controller
      * * Returns all developers
      * * Not Authenticated
      */
-    public function index()
-    {
+    public function index() {
+        $developers = Developer::all();
+        $typeDevelopers = TypeDeveloper::all();
+
         return Inertia::render('Developers/Index', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'developers' => $developers->load(['user', 'type_developer']),
+            'typeDevelopers' => $typeDevelopers,
         ]);
     }
 
