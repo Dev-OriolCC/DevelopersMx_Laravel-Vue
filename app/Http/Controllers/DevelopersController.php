@@ -23,14 +23,20 @@ class DevelopersController extends Controller
      * * Not Authenticated
      */
     public function index() {
+        // ! TEST: separte method for search
         $developers = Developer::all();
-        $typeDevelopers = TypeDeveloper::all();
-
+        $typeDevelopers = TypeDeveloper::all()->toArray();
+        //? Return all locations without duplicates
+        $locations = $developers->pluck('location')->toArray();
+        $locations = array_unique($locations);
+        // dd($locations);
         return Inertia::render('Developers/Index', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'developers' => $developers->load(['user', 'type_developer']),
             'typeDevelopers' => $typeDevelopers,
+            'developersTotal' => $developers->count(),
+            'locations' => $locations,
         ]);
     }
 
@@ -45,6 +51,34 @@ class DevelopersController extends Controller
             'user' => $user,
             'developer' => $developer,
             'type_developer' => $type_developer,
+        ]);
+    }
+
+    /**
+     * //* Not Authenticated
+     */
+    public function search(Request $request){
+        //! Refactor to work with multiple searches....
+        $search_value = $request->id;
+        $search_type = $request->name;
+        // dd($search_type);
+        if ($search_type == 'type') {
+            // * Query Search
+            $developers = Developer::where('type_id', $search_value)->get(); // Backend
+        } else {
+            $developers = Developer::where('location', $search_value)->get(); // Cancun
+        }
+        $typeDevelopers = TypeDeveloper::all();
+        $locations = $developers->pluck('location')->toArray();
+        $locations = array_unique($locations);
+        //* Render View
+        return Inertia::render('Developers/Index', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'developers' => $developers->load(['user', 'type_developer']),
+            'typeDevelopers' => $typeDevelopers,
+            'developersTotal' => $developers->count(),
+            'locations' => $locations
         ]);
     }
 
@@ -122,18 +156,7 @@ class DevelopersController extends Controller
         return redirect(route('dashboard'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id){
-        
-        
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.

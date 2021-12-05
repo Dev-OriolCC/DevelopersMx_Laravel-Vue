@@ -12,6 +12,8 @@ use Inertia\Inertia;
 
 // admin@mail.com
 // admin100
+// TODO: NOTES/FEATURES/BUGS
+// ! fix issue type_developer can not be null and causes a error on front-end views.
 
 
 //  ? Public Routes
@@ -19,6 +21,8 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/api', [HomeController::class, 'api'])->name('api');
+Route::get('/developers/search/{name}/{id}', [DevelopersController::class, 'search'])->name('developers.search');
+
 // ! Resource Routes
 Route::resource('developers', DevelopersController::class)->only(['index', 'show']);
 

@@ -59,6 +59,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        // return redirect(route('developers.edit', $user->id));
         return redirect(RouteServiceProvider::HOME);
     }
 }
