@@ -69,7 +69,7 @@ class DevelopersController extends Controller
             $developers = Developer::where('location', $search_value)->get(); // Cancun
         }
         $typeDevelopers = TypeDeveloper::all();
-        $locations = $developers->pluck('location')->toArray();
+        $locations = Developer::all()->pluck('location')->toArray(); //$developers->pluck('location')->toArray();
         $locations = array_unique($locations);
         //* Render View
         return Inertia::render('Developers/Index', [
@@ -78,7 +78,8 @@ class DevelopersController extends Controller
             'developers' => $developers->load(['user', 'type_developer']),
             'typeDevelopers' => $typeDevelopers,
             'developersTotal' => $developers->count(),
-            'locations' => $locations
+            'locations' => $locations,
+            'filter' => true,
         ]);
     }
 
@@ -109,10 +110,13 @@ class DevelopersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        
-        return Inertia::render('Developers/Developer');
+    public function show($id) {
+        $developer = Developer::find($id);
+        return Inertia::render('Developers/Developer', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'developer' => $developer->load(['user', 'type_developer'])
+        ]);
     }
 
     /**

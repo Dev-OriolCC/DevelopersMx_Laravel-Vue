@@ -25,7 +25,6 @@ Route::get('/developers/search/{name}/{id}', [DevelopersController::class, 'sear
 
 // ! Resource Routes
 Route::resource('developers', DevelopersController::class)->only(['index', 'show']);
-
 Route::resource('companies', CompaniesController::class);
 Route::resource('projects', ProjectsController::class);
 
