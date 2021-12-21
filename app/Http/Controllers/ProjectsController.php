@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Route;
+use App\Models\Developer;
+
+
 
 
 class ProjectsController extends Controller
@@ -18,7 +22,12 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return Inertia::render('Projects/Index');
+        $projects = Project::all();
+        return Inertia::render('Projects/Index', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'projects' => $projects->load(['developer']),
+        ]);
     }
 
     /**

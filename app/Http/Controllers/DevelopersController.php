@@ -115,7 +115,7 @@ class DevelopersController extends Controller
         return Inertia::render('Developers/Developer', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'developer' => $developer->load(['user', 'type_developer'])
+            'developer' => $developer->load(['user', 'type_developer', 'skills', 'projects'])
         ]);
     }
 

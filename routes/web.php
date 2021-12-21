@@ -25,8 +25,8 @@ Route::get('/developers/search/{name}/{id}', [DevelopersController::class, 'sear
 
 // ! Resource Routes
 Route::resource('developers', DevelopersController::class)->only(['index', 'show']);
+Route::resource('projects', ProjectsController::class)->only(['index', 'show']);
 Route::resource('companies', CompaniesController::class);
-Route::resource('projects', ProjectsController::class);
 
 // ? Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -34,7 +34,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // ! Resource Routes
     Route::resource('skills', SkillsController::class);
     Route::resource('developers', DevelopersController::class)->except(['index', 'show']);
+    Route::resource('projects', ProjectsController::class)->except(['index', 'show']);
 
+    // Replace-update methods
     Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject'); //* replace-update
     Route::post('developers/updateDeveloper/{id}', [DevelopersController::class, 'updateDeveloper'])->name('developers.updateDeveloper'); //* replace-update
 
