@@ -10,17 +10,19 @@
                         <div class="border-2 border-indiglo-600 max-w-md bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl hover:scale-105 
                             transform transition-all duration-500">
                             <!-- Images Section -->
-                            <div v-if="project.project_image" class="p-4">
-                                <img class="rounded-xl" :src="this.public+'storage/'+project.project_image" width="200" height="200" alt="no-image" />
+                            <div v-if="project.project_image" class="align-center">
+                                <img class="rounded-xl mx-auto mt-2" :src="this.public+'storage/'+project.project_image" width="230" height="230" alt="no-image" />
                             </div>
                             <div v-else>
                                 <img class="rounded-xl" :src="this.public+'images/default-profile.jpg'" width="230" height="230" alt="no-image" />
                             </div>
-                            <div class=" p-6">
+                            <div class="p-6">
                                 <div class="">
                                     <h1 class="text-lg font-bold text-center">{{ project.title }}</h1>
                                     <h1 class="text-lg ">{{ project.description }}</h1>
-                                    <h3 class="text-md">By </h3>
+                                    <a :href="route('developers.show', project.developer_id)">
+                                        <h3 class="text-md font-bold hover:text-indigo-600">By {{ project.developer.username }}</h3>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -12,8 +12,11 @@ use Inertia\Inertia;
 
 // admin@mail.com
 // admin100
+
+// company@mail.com
+// company100
 // TODO: NOTES/FEATURES/BUGS
-// ! fix issue type_developer can not be null and causes a error on front-end views.
+// ! fix the bug with company login in and out
 
 
 //  ? Public Routes

@@ -1,5 +1,5 @@
 <template>
-    <Head title="Log in" />
+    <Head title="Login Company" />
 
     <BreezeValidationErrors class="mb-4" />
 
@@ -9,8 +9,9 @@
 
     <form @submit.prevent="submit">
         <div>
-            <BreezeLabel for="email" value="Email" />
-            <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
+            <BreezeLabel for="company_name" value="Company Name" />
+            <BreezeInput id="company_name" type="text" class="mt-1 block w-full" v-model="form.company_name" required 
+                autofocus autocomplete="company_name" placeholder="@developer_mx"  />
         </div>
 
         <div class="mt-4">
@@ -26,8 +27,8 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <Link :href="route('login.company')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Are you a company? Login here!
+            <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                Are you a developer? Login here!
             </Link>
 
             <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -67,7 +68,7 @@ export default {
     data() {
         return {
             form: this.$inertia.form({
-                email: '',
+                company_name: '',
                 password: '',
                 remember: false
             })
@@ -76,7 +77,7 @@ export default {
 
     methods: {
         submit() {
-            this.form.post(this.route('login'), {
+            this.form.post(this.route('login.company'), {
                 onFinish: () => this.form.reset('password'),
             })
         }

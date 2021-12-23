@@ -10,20 +10,37 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/register', [RegisteredUserController::class, 'create'])
+Route::get('/register', [RegisteredUserController::class, 'create']) //* View
                 ->middleware('guest')
                 ->name('register');
+// ? PENDING PAGE & METHOD 
+Route::get('/registerCompany', [RegisteredUserController::class, 'createCompany']) //* View
+                ->middleware('guest')
+                ->name('register.company');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
 
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+Route::get('/login', [AuthenticatedSessionController::class, 'create']) //* View
                 ->middleware('guest')
                 ->name('login');
+// ? VIEW-FINISHED
+Route::get('loginCompany', [AuthenticatedSessionController::class, 'createCompany']) //* View
+                ->middleware('guest')
+                ->name('login.company');
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
                 ->middleware('guest');
 
+// ? LOGIN-NEEDS TO BE TESTED
+Route::post('/loginCompany', [AuthenticatedSessionController::class, 'storeCompany'])
+                ->middleware('guest');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+                ->middleware('auth')
+                ->name('logout');
+
+// ! EXTRA NOT USED AT THE MOMENT COMMIT(#20)
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->middleware('guest')
                 ->name('password.request');
@@ -59,6 +76,3 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
                 ->middleware('auth');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->middleware('auth')
-                ->name('logout');

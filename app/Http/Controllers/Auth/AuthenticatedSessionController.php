@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\LoginCompanyRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,10 +18,20 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Inertia\Response
      */
-    public function create()
-    {
+    public function create() {
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
+            'status' => session('status'),
+        ]);
+    }
+    
+    /**
+     * Display the login view for a company.
+     * @return \Inertia\Response
+     */
+    public function createCompany() {
+        return Inertia::render('Auth/LoginCompany', [
+            'canResetPassword' => Route::has('company.request'),
             'status' => session('status'),
         ]);
     }
@@ -31,12 +42,18 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
-    {
+    public function store(LoginRequest $request) {
         $request->authenticate();
-
         $request->session()->regenerate();
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
 
+    /**
+     * 
+     */
+    public function storeCompany(LoginCompanyRequest $request) { 
+        $request->authenticate();
+        $request->session()->regenerate();
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
