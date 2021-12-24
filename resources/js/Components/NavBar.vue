@@ -24,6 +24,8 @@
                     <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Companies</a>
                     <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">About</a>
                     <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">API</a>
+                    
+                    <!-- //! RIGHT-BUTTONS -->
                     <div v-if="canLogin" class="mt-2">
                         <Link v-if="$page.props.auth.user" :href="route('dashboard')" class=" p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
                             Profile
@@ -62,8 +64,6 @@ export default {
     },
 
     mounted() {
-        console.log('NAVBAR');
-        console.log(this.canLogin); 
         // console.log(test); 
     },
 

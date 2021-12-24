@@ -44,14 +44,19 @@ class LoginCompanyRequest extends FormRequest
     public function authenticate() {
         $this->ensureIsNotRateLimited();
 
-        dd('HERE');
-        // if (! Auth::attempt($this->only('company_name', 'password'), $this->boolean('remember'))) {
-        //     RateLimiter::hit($this->throttleKey());
+        // dd('HERE');
+        if (! Auth::guard('company')->attempt($this->only('company_name', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+            
+            //return redirect(route('index'));
 
-        //     throw ValidationException::withMessages([
-        //         'company_name' => __('auth.failed'),
-        //     ]);
-        // }
+            throw ValidationException::withMessages([
+                'company_name' => __('auth.failed'),
+            ]);
+        }
+        //!
+        
+        //!
 
         RateLimiter::clear($this->throttleKey());
     }

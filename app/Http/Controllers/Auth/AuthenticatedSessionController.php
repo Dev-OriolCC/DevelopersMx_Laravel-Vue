@@ -13,6 +13,11 @@ use Inertia\Inertia;
 
 class AuthenticatedSessionController extends Controller
 {
+    // * CONSTRUCTOR
+    public function __construct() {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:company')->except('logout');
+    }
     /**
      * Display the login view.
      *
@@ -49,12 +54,21 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * 
+     *  @return POST-LOGIN_FOR_A_COMPANY
      */
-    public function storeCompany(LoginCompanyRequest $request) { 
-        $request->authenticate();
-        $request->session()->regenerate();
-        return redirect()->intended(RouteServiceProvider::HOME);
+    public function storeCompany(Request $request) { 
+        $this->validate($request, [
+            'company_name' => 'required',
+            'password' => 'required',
+        ]);
+        
+        if (Auth::guard('company')->attempt(['company_name' => $request->company_name, 'password' => $request->password]) ) {
+            $request->session()->regenerate();
+            return redirect(route('index'));
+        }
+        return back()->withInput($request->only('company_name', 'remember'));
+        // $request->session()->regenerate();
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

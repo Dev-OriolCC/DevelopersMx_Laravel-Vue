@@ -21,6 +21,9 @@ Route::get('/registerCompany', [RegisteredUserController::class, 'createCompany'
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
 
+Route::post('/registerCompany', [RegisteredUserController::class, 'storeCompany'])
+                ->middleware('guest');
+
 Route::get('/login', [AuthenticatedSessionController::class, 'create']) //* View
                 ->middleware('guest')
                 ->name('login');
@@ -32,7 +35,7 @@ Route::get('loginCompany', [AuthenticatedSessionController::class, 'createCompan
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
                 ->middleware('guest');
 
-// ? LOGIN-NEEDS TO BE TESTED
+// TODO LOGIN-NEEDS TO BE TESTED
 Route::post('/loginCompany', [AuthenticatedSessionController::class, 'storeCompany'])
                 ->middleware('guest');
 

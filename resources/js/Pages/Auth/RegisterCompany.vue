@@ -1,17 +1,18 @@
 <template>
-    <Head title="Register" />
+    <Head title="Register Company" />
 
     <BreezeValidationErrors class="mb-4" />
 
     <form @submit.prevent="submit">
         <div>
-            <BreezeLabel for="name" value="Name" />
+            <BreezeLabel for="name" value="Full Company Name" />
             <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
         </div>
 
         <div class="mt-4">
-            <BreezeLabel for="email" value="Email" />
-            <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
+            <BreezeLabel for="company_name" value="Company Name" />
+            <BreezeInput id="company_name" type="text" class="mt-1 block w-full" v-model="form.company_name" required 
+            placeholder="@company_name" autocomplete="username" />
         </div>
 
         <div class="mt-4">
@@ -25,11 +26,8 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <Link :href="route('login')" class="underline mr-2 text-sm text-gray-600 hover:text-gray-900">
+            <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
                 Already registered?
-            </Link>
-            <Link :href="route('register.company')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Register a company?
             </Link>
 
             <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -63,7 +61,7 @@ export default {
         return {
             form: this.$inertia.form({
                 name: '',
-                email: '',
+                company_name: '',
                 password: '',
                 password_confirmation: '',
                 terms: false,
@@ -73,7 +71,7 @@ export default {
 
     methods: {
         submit() {
-            this.form.post(this.route('register'), {
+            this.form.post(this.route('register.company'), {
                 onFinish: () => this.form.reset('password', 'password_confirmation'),
             })
         }

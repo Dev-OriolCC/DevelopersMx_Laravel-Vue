@@ -31,7 +31,7 @@ Route::resource('developers', DevelopersController::class)->only(['index', 'show
 Route::resource('projects', ProjectsController::class)->only(['index', 'show']);
 Route::resource('companies', CompaniesController::class);
 
-// ? Authenticated Routes
+// ? Authenticated Routes for Developer
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])->name('dashboard');//* Main auth index
     // ! Resource Routes
@@ -47,6 +47,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/skillsProfile', [SkillsController::class, 'profileSkills'])->name('profile.skills');
     route::get('/projectsProfile', [ProjectsController::class, 'profileProjects'])->name('profile.projects');
 });
+
+// ? Authenticated Routes for Company
+    Route::get('/company', function(){
+        return 'HELLO';
+    })->middleware('auth:company');
 
 
 require __DIR__.'/auth.php';
