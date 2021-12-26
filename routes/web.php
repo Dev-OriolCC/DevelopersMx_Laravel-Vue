@@ -16,6 +16,7 @@ use Inertia\Inertia;
 // company@mail.com
 // company100
 // TODO: NOTES/FEATURES/BUGS
+// ! Recieved props make personalized navbar
 // ! fix the bug with company login in and out
 
 
@@ -29,7 +30,7 @@ Route::get('/developers/search/{name}/{id}', [DevelopersController::class, 'sear
 // ! Resource Routes
 Route::resource('developers', DevelopersController::class)->only(['index', 'show']);
 Route::resource('projects', ProjectsController::class)->only(['index', 'show']);
-Route::resource('companies', CompaniesController::class);
+Route::resource('companies', CompaniesController::class)->only(['index', 'show']);
 
 // ? Authenticated Routes for Developer
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -49,9 +50,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // ? Authenticated Routes for Company
-    Route::get('/company', function(){
-        return 'HELLO';
-    })->middleware('auth:company');
+    Route::middleware('auth:company')->group(function () {
+        Route::resource('companies', CompaniesController::class)->except(['index', 'show']);
+        Route::get('/dashboard-company', [CompaniesController::class, 'companyDashboard'])->name('companies.dashboard');
+    });
 
 
 require __DIR__.'/auth.php';

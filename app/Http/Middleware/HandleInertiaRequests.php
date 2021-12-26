@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -33,6 +34,16 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        if ($request->session()->has('company')) {
+            $company_name = $request->session()->get('company');
+            $company = Company::where('company_name', $company_name)->first();
+            return array_merge(parent::share($request), [
+                'auth' => [
+                    // 'user' => $request->user(),
+                    'company' => $company,
+                ],
+            ]); 
+        }
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),

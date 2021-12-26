@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 class CompaniesController extends Controller
 {
+    public function companyDashboard() {
+        //dd('This is the Companies Dashboard');
+        $company = Auth::user();
+        return Inertia::render('Companies/Company', [
+            'company' => $company
+        ]);
+
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return Inertia::render('Companies/Index');
     }
 
@@ -23,8 +31,7 @@ class CompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 

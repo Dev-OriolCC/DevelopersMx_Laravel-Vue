@@ -39,9 +39,10 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])
 Route::post('/loginCompany', [AuthenticatedSessionController::class, 'storeCompany'])
                 ->middleware('guest');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->middleware('auth')
-                ->name('logout');
+Route::middleware(['auth:company', 'auth'])->group(function () {
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+});
+//                ->middleware(['auth', 'auth:company'])
 
 // ! EXTRA NOT USED AT THE MOMENT COMMIT(#20)
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
