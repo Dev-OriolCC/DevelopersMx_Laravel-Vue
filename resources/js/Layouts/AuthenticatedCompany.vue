@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-200">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,11 +14,11 @@
                             </div>
                             <!-- //? Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <BreezeNavLink :href="route('companies.dashboard')" :active="route().current('companies.dashboard')">
                                     Company
                                 </BreezeNavLink>
 
-                                <BreezeNavLink :href="route('profile.skills')" :active="route().current('profile.skills')">
+                                <BreezeNavLink :href="route('companies.jobs')" :active="route().current('companies.jobs')">
                                     Jobs
                                 </BreezeNavLink>
 

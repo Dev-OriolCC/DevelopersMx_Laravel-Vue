@@ -10,7 +10,7 @@ class Job extends Model
     // use HasFactory;
     public $incrementing = false;
 
-    protected $fillable = ['company_id', 'type_id', 'title', 'description', 'location', 'level', 'schedule',
+    protected $fillable = ['id','company_id', 'type_id', 'title', 'description', 'location', 'level', 'schedule',
         'benefit_flexible', 'benefit_dress', 'benefit_medical', 'benefit_vacation'];
 
     public function company(){

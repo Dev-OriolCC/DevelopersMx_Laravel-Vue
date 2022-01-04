@@ -16,7 +16,6 @@ use Inertia\Inertia;
 // company@mail.com
 // company100
 // TODO: NOTES/FEATURES/BUGS
-// ! Recieved props make personalized navbar
 // ! fix the bug with company login in and out
 
 
@@ -53,6 +52,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('auth:company')->group(function () {
         Route::resource('companies', CompaniesController::class)->except(['index', 'show']);
         Route::get('/dashboard-company', [CompaniesController::class, 'companyDashboard'])->name('companies.dashboard');
+        Route::get('/jobs-company', [CompaniesController::class, 'jobsDashboard'])->name('companies.jobs');
+        Route::get('/jobs-create', [CompaniesController::class, 'jobCreate'])->name('jobs.create');
+        Route::post('/jobs-store', [CompaniesController::class, 'jobStore'])->name('jobs.store');
     });
 
 

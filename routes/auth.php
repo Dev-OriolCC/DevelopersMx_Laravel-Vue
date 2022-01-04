@@ -39,9 +39,9 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])
 Route::post('/loginCompany', [AuthenticatedSessionController::class, 'storeCompany'])
                 ->middleware('guest');
 
-Route::middleware(['auth:company', 'auth'])->group(function () {
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-});
+// Route::middleware(['auth', 'auth:company'])->group(function () {
+// });
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 //                ->middleware(['auth', 'auth:company'])
 
 // ! EXTRA NOT USED AT THE MOMENT COMMIT(#20)
