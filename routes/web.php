@@ -52,9 +52,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('auth:company')->group(function () {
         Route::resource('companies', CompaniesController::class)->except(['index', 'show']);
         Route::get('/dashboard-company', [CompaniesController::class, 'companyDashboard'])->name('companies.dashboard');
+        Route::get('/company-profile', [CompaniesController::class, 'companyProfile'])->name('company.profile');
+        // *
         Route::get('/jobs-company', [CompaniesController::class, 'jobsDashboard'])->name('companies.jobs');
         Route::get('/jobs-create', [CompaniesController::class, 'jobCreate'])->name('jobs.create');
         Route::post('/jobs-store', [CompaniesController::class, 'jobStore'])->name('jobs.store');
+        Route::get('/jobs-edit/{id}', [CompaniesController::class, 'jobEdit'])->name('jobs.edit'); //!
+        Route::post('/jobs-update/{id}', [CompaniesController::class, 'jobUpdate'])->name('jobs.update');
+        Route::delete('/jobs-delete/{id}', [CompaniesController::class, 'jobDelete'])->name('jobs.delete');
+
     });
 
 

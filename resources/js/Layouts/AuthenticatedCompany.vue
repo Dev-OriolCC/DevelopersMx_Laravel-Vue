@@ -22,8 +22,8 @@
                                     Jobs
                                 </BreezeNavLink>
 
-                                <BreezeNavLink :href="route('profile.projects')" :active="route().current('profile.projects')">
-                                    Other
+                                <BreezeNavLink :href="route('company.profile')" :active="route().current('profile.projects')">
+                                    Profile
                                 </BreezeNavLink>
                             </div>
                         </div> <!-- CLOSE-FLEX -->

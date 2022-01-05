@@ -21,3 +21,4 @@ class Job extends Model
         return $this->BelongsTo(TypeDeveloper::class, 'type_id');
     }
 }
+

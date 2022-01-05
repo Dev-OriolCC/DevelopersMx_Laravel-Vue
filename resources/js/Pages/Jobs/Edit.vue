@@ -115,12 +115,23 @@
                                     </div>
 
                                     <!-- //! BUTTON -->
-                                    <button class="mt-4 ml-2 bg-indigo-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1"
+                                    <button v-if="this.job" class="mt-4 ml-2 bg-indigo-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1"
+                                    type="button" @click="updateJob(this.form)"
+                                    >
+                                    Update Job
+                                    </button>
+
+                                    <button v-else class="mt-4 ml-2 bg-indigo-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1"
                                     type="button" @click="createJob"
                                     >
                                     Create Job
                                     </button>
-                                    
+
+                                    <Link class="mt-4 ml-2 bg-red-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1"
+                                    :href="route('companies.jobs')"
+                                    >
+                                    Cancel
+                                    </Link>
                                 </div>
                             </div>
                         </form>
@@ -147,21 +158,23 @@ export default {
         'company': Array,
         'roles': Array,
         'levels': Array,
+        'job': Array,
     },
 
     data() {
         return { 
             form: this.$inertia.form({
-                type_id: '',
-                title: '',
-                description: '',
-                location: '',
-                level: '',
-                schedule: '',
-                benefit_flexible: '',
-                benefit_dress: '',
-                benefit_medical: '',
-                benefit_vacation: '',
+                type_id: (this.job) ? this.job.type_developer.id : '',
+                title: (this.job) ? this.job.title : '',
+                description: (this.job) ? this.job.description : '',
+                location: (this.job) ? this.job.location : '',
+                level: (this.job) ? this.job.level : '',
+                schedule: (this.job) ? this.job.schedule : '',
+                //! Verify how to do true and false
+                benefit_flexible: (this.job) ? this.verifyBenefit(this.job, 1) : false,
+                benefit_dress: (this.job) ? this.verifyBenefit(this.job, 2) : false,
+                benefit_medical: (this.job) ? this.verifyBenefit(this.job, 3) : false,
+                benefit_vacation: (this.job) ? this.verifyBenefit(this.job, 4) : false,
             }),
             currentDate: '',
         }
@@ -177,6 +190,26 @@ export default {
         createJob() {
             this.form.post(this.route('jobs.store'))
             console.log('Job created')
+        },
+        updateJob(job) {
+            this.form.post(this.route('jobs.update', this.job.id))
+        },
+        verifyBenefit(jobObject, benefit_number){
+            switch (benefit_number) {
+                case 1:
+                    var response = (jobObject.benefit_flexible) ? true : false;
+                    break;
+                case 2:
+                    var response = (jobObject.benefit_dress) ? true : false;
+                    break;
+                case 3:
+                    var response = (jobObject.benefit_medical) ? true : false;
+                    break;
+                default:
+                    var response = (jobObject.benefit_vacation) ? true : false;
+                    break;
+            }
+            return response;
         }
     },
 
