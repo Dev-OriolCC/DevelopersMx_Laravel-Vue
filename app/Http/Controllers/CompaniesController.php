@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Job;
 use App\Models\TypeDeveloper;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Stmt\TryCatch;
 
 class CompaniesController extends Controller
@@ -151,21 +153,23 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $company = Auth::user();
+        return Inertia::render('Companies/Edit', [
+            'company' => $company,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function companyUpdate(Request $request, $id) {
+        $company = Company::find($id);
+        $companyData = $request->only(['name', 'description', 'social_email', 'social_linkedin', 'location']);
+        if ($request->hasFile('company_image')) {
+            Storage::delete('public/'.$company->company_image);
+            $companyData['company_image'] = $request->file('company_image')
+                ->store('images/profiles', 'company_image');
+        }
+        $company->update($companyData);
+        return redirect(route('company.profile'));
     }
 
     /**

@@ -53,6 +53,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('companies', CompaniesController::class)->except(['index', 'show']);
         Route::get('/dashboard-company', [CompaniesController::class, 'companyDashboard'])->name('companies.dashboard');
         Route::get('/company-profile', [CompaniesController::class, 'companyProfile'])->name('company.profile');
+        Route::post('/company-update/{id}', [CompaniesController::class, 'companyUpdate'])->name('companies.updateProfile');
         // *
         Route::get('/jobs-company', [CompaniesController::class, 'jobsDashboard'])->name('companies.jobs');
         Route::get('/jobs-create', [CompaniesController::class, 'jobCreate'])->name('jobs.create');
