@@ -9,9 +9,13 @@
                         alt=""
                     />
                     <p class="my-10 text-4xl font-bold">{{ this.company.name }}</p>
-                    <p>{{ this.company.description }}</p>
-                    <!-- //? Social media icons -->
+                    
                 </div>
+
+                <p class="my-10 text-center text-2xl font-bold">{{ this.company.description }}</p>
+                <p class="my-10 text-center text-2xl font-bold">{{ this.company.location }}</p>
+                <!-- //? Social media icons -->
+
                 <div align="right">
                     <Link
                         class="bg-indigo-600 active:bg-pink-600 uppercase text-white font-bold 
@@ -27,7 +31,7 @@
             </div>
         </div>
 
-        {{this.company}}
+        
 
 
     </AuthenticatedCompany>

@@ -60,12 +60,12 @@
                                             
                                             <!--  -->
                                             <Link :href="route('company.profile')"  
-                                                class="bg-red-600 uppercase text-white font-bold hover:shadow-md 
+                                                class="mt-4 ml-3 bg-red-600 uppercase text-white font-bold hover:shadow-md 
                                                 shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1">
                                                 Cancel
                                             </Link>
                                             <!-- BUTTON -->
-                                            <button class="bg-indigo-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
+                                            <button class="mt-4 ml-3 bg-indigo-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1" tabindex="-1" 
                                             type="button" @click="updateCompany">Update Profile</button>
                                             
                                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Developer;
 use App\Models\Job;
 use App\Models\TypeDeveloper;
 use Illuminate\Http\Request;
@@ -18,8 +19,16 @@ class CompaniesController extends Controller
     public function companyDashboard() {
         //dd('This is the Companies Dashboard');
         $company = Auth::user();
+        $jobs = $company->jobs();
+        if ($jobs->count() > 0) {
+            $roles = Job::where('company_id', $company->id)->pluck('type_id')->toArray();
+            $developers = Developer::whereIn('type_id', $roles)->get();
+        } else {
+            $developers = Developer::all();
+        }
         return Inertia::render('Companies/Company', [
-            'company' => $company
+            'company' => $company,
+            'developers' => $developers->load(['user', 'type_developer'])
         ]);
     }
 
@@ -113,7 +122,13 @@ class CompaniesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return Inertia::render('Companies/Index');
+        return Inertia::render('Companies/Index', [
+            'user' => Auth::user(),
+            'companies' => Company::all(),
+            // 
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
     }
 
     /**

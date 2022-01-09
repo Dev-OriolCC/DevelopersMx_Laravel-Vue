@@ -64,14 +64,14 @@
                 <!-- //! Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <BreezeResponsiveNavLink :href="route('companies.dashboard')" :active="route().current('companies.dashboard')">
+                            Company
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('companies.jobs')" :active="route().current('companies.jobs')">
+                            Jobs
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('company.profile')" :active="route().current('profile.projects')">
                             Profile
-                        </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('profile.skills')" :active="route().current('profile.skills')">
-                            Skills
-                        </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('profile.projects')" :active="route().current('profile.projects')">
-                            Projects
                         </BreezeResponsiveNavLink>
                     </div>
 

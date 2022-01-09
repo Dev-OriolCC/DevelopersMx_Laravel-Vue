@@ -169,7 +169,7 @@ export default {
                 description: (this.job) ? this.job.description : '',
                 location: (this.job) ? this.job.location : '',
                 level: (this.job) ? this.job.level : '',
-                schedule: (this.job) ? this.job.schedule : '',
+                schedule: (this.job) ? this.job.schedule : this.currentDate,
                 //! Verify how to do true and false
                 benefit_flexible: (this.job) ? this.verifyBenefit(this.job, 1) : false,
                 benefit_dress: (this.job) ? this.verifyBenefit(this.job, 2) : false,
@@ -182,8 +182,8 @@ export default {
 
     mounted() {
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        this.currentDate = date
+        var date = today.getFullYear()+'-'+(today.getMonth()+1).toString().padStart(2, "0")+'-'+today.getDate().toString().padStart(2, "0")
+        this.currentDate = date;
     },
 
     methods: {

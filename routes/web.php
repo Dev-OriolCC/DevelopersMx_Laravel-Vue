@@ -31,24 +31,22 @@ Route::resource('developers', DevelopersController::class)->only(['index', 'show
 Route::resource('projects', ProjectsController::class)->only(['index', 'show']);
 Route::resource('companies', CompaniesController::class)->only(['index', 'show']);
 
-// ? Authenticated Routes for Developer
+// ? [MIDDLEWARE] Authenticated Routes for Developer
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DevelopersController::class, 'profileDeveloper'])->name('dashboard');//* Main auth index
     // ! Resource Routes
     Route::resource('skills', SkillsController::class);
     Route::resource('developers', DevelopersController::class)->except(['index', 'show']);
     Route::resource('projects', ProjectsController::class)->except(['index', 'show']);
-
     // Replace-update methods
     Route::post('projects/updateProject/{id}', [ProjectsController::class, 'updateProject'])->name('updateProject'); //* replace-update
     Route::post('developers/updateDeveloper/{id}', [DevelopersController::class, 'updateDeveloper'])->name('developers.updateDeveloper'); //* replace-update
-
     // ? Profile routes
     Route::get('/skillsProfile', [SkillsController::class, 'profileSkills'])->name('profile.skills');
     route::get('/projectsProfile', [ProjectsController::class, 'profileProjects'])->name('profile.projects');
 });
 
-// ? Authenticated Routes for Company
+// ? [MIDDLEWARE] Authenticated Routes for Company
     Route::middleware('auth:company')->group(function () {
         Route::resource('companies', CompaniesController::class)->except(['index', 'show']);
         Route::get('/dashboard-company', [CompaniesController::class, 'companyDashboard'])->name('companies.dashboard');
@@ -61,7 +59,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/jobs-edit/{id}', [CompaniesController::class, 'jobEdit'])->name('jobs.edit'); //!
         Route::post('/jobs-update/{id}', [CompaniesController::class, 'jobUpdate'])->name('jobs.update');
         Route::delete('/jobs-delete/{id}', [CompaniesController::class, 'jobDelete'])->name('jobs.delete');
-
     });
 
 

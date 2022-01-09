@@ -110,7 +110,9 @@ export default {
             return humanDate+" ("+days+" days left)";
         }, 
         deleteJob(id) {
-            this.$inertia.delete(this.route('jobs.delete', id));
+            if (confirm('Are you sure you want to delete this job?')) {
+                this.$inertia.delete(this.route('jobs.delete', id));
+            }
         }
     }
 
